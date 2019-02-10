@@ -5,4 +5,5 @@
 # @example
 #   include virtualbox_manage
 class virtualbox_manage {
+    $test = '111',
 }

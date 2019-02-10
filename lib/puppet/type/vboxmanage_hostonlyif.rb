@@ -8,16 +8,6 @@ Puppet::Type.newtype(:vboxmanage_hostonlyif) do
   end
 
   newparam(:name, namevar: true) do
-    desc 'name'
-    validate do |value|
-      unless value =~ /[a-z0-9]+/
-        raise ArgumentError, "%s title must be format: [a-zA-Z0-9]+" % value
-      end
-
-    end
-  end
-
-  newproperty(:ip) do
     desc 'bridge ip address'
     validate do |value|
       unless value =~ ipv4_regex
@@ -28,7 +18,7 @@ Puppet::Type.newtype(:vboxmanage_hostonlyif) do
   end
 
   newproperty(:netmask) do
-    desc 'public_key_path'
+    desc 'netmask'
     validate do |value|
       unless value =~ ipv4_regex
         raise ArgumentError, "%s is not ipv4 address" % value
